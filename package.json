@@ -3,18 +3,49 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@grapecity/spread-sheets": "^17.1.0",
+    "@grapecity/spread-sheets-react": "^17.1.0",
+    "@react-pdf/renderer": "^3.4.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "ag-grid-community": "^31.3.2",
+    "ag-grid-react": "^31.3.2",
+    "antd": "^5.18.3",
+    "axios": "^1.7.2",
+    "buffer": "^6.0.3",
+    "canvas": "^2.11.2",
+    "canvas-datagrid": "^0.4.7",
+    "chart.js": "^4.4.3",
+    "crypto-browserify": "^3.12.0",
+    "exceljs": "^4.4.0",
+    "file-loader": "^6.2.0",
+    "file-saver": "^2.0.5",
+    "firebase": "^10.12.2",
+    "html-to-image": "^1.11.11",
+    "html2canvas": "^1.4.1",
+    "http-proxy-middleware": "^3.0.0",
+    "jwt-decode": "^4.0.0",
+    "re-resizable": "^6.9.17",
     "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
+    "react-data-grid": "^7.0.0-beta.44",
+    "react-datasheet": "^1.4.12",
     "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-excel-renderer": "^1.1.0",
+    "react-resizable": "^3.0.5",
+    "react-router-dom": "^6.23.1",
+    "react-scripts": "^5.0.1",
+    "react-table": "^7.8.0",
+    "react-tabs": "^6.0.2",
+    "stream-browserify": "^3.0.0",
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -34,5 +65,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-app-rewired": "^2.2.1"
   }
 }

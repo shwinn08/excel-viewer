@@ -1,0 +1,457 @@
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.App {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    /* Adjusted padding */
+    position: relative;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #343a40;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+button.logout,
+button.download {
+    position: absolute;
+    top: 1rem;
+    padding: 8px 16px;
+    /* Adjusted button padding */
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.logout {
+    right: 1rem;
+    background-color: #dc3545;
+    color: white;
+}
+
+button.logout:hover {
+    background-color: #c82333;
+}
+
+button.download {
+    right: 8rem;
+    background-color: #28a745;
+    color: white;
+}
+
+button.download:hover {
+    background-color: #218838;
+}
+
+.excel-viewer {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+    display: flex;
+    /* Added display flex for column layout */
+    flex-direction: column;
+    /* Added flex direction */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 1rem;
+}
+
+.dropbtn {
+    background-color: #f8f9fa;
+    color: #495057;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropbtn:hover {
+    background-color: #e9ecef;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f3f5;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav {
+    display: flex;
+    overflow-x: auto;
+    background-color: #f4f7fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.5rem 1rem;
+    margin-bottom: 10px;
+    /* Adjusted margin bottom */
+}
+
+.nav button {
+    background-color: transparent;
+    border: none;
+    color: #495057;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.nav button.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+}
+
+.nav button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.search-bar {
+    padding: 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 10px;
+    /* Adjusted margin bottom */
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+.sheet-container {
+    overflow-x: auto;
+    margin-top: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove or comment out any existing border styles for .sheet, .sheet th, and .sheet td */
+
+.sheet {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.sheet th,
+.sheet td {
+    padding: 8px;
+    text-align: left;
+}
+
+/* Keep other existing styles */
+
+.sheet th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+}
+
+.sheet tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.sheet tr:hover {
+    background-color: #e9ecef;
+}
+
+.expanded-row td {
+    background-color: #f1f3f5;
+    padding: 1rem;
+}
+
+.expanded-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.expanded-content p {
+    margin: 0.5rem 1rem 0.5rem 0;
+    flex-basis: calc(33.333% - 1rem);
+}
+
+.result-viewer {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    /* Consolidated background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    /* Adjusted margin bottom */
+}
+
+.result-navigation button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.result-navigation button:hover {
+    background-color: #0056b3;
+}
+
+.result-navigation button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.result-navigation span {
+    font-weight: bold;
+    color: #495057;
+}
+
+.result-content {
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1.1rem;
+    color: #212529;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-content:empty::before {
+    content: 'No data available';
+    color: #6c757d;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .App {
+        padding: 1rem;
+    }
+
+    .sheet th,
+    .sheet td {
+        padding: 0.5rem;
+    }
+
+    .expanded-content p {
+        flex-basis: 100%;
+    }
+
+    .result-viewer {
+        padding: 15px;
+    }
+
+    .result-viewer h2 {
+        font-size: 1.2rem;
+    }
+
+    .result-navigation button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    .result-content {
+        font-size: 1rem;
+        min-height: 80px;
+    }
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+.sheet th,
+.sheet td {
+    padding: 8px;
+    text-align: left;
+}
+
+.bordered-cell {
+    border: 1px solid #adb5bd;
+}
+
+.unbordered-cell {
+    border: none;
+}
+
+/* Add this to your existing CSS */
+
+.sheet.without-grid {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.sheet.without-grid th,
+.sheet.without-grid td {
+    border: none;
+}
+
+.sheet.with-grid {
+    border-collapse: collapse;
+}
+
+.sheet.with-grid th,
+.sheet.with-grid td {
+    border: 1px solid #adb5bd;
+}
+
+/* Adjust the existing styles to remove default borders */
+.sheet th,
+.sheet td {
+    padding: 8px;
+    text-align: left;
+}
+
+/* Add styles for table lines when present */
+.sheet tr.table-line {
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+.sheet tr.table-line td:first-child,
+.sheet tr.table-line th:first-child {
+    border-left: 2px solid #000;
+}
+
+.sheet tr.table-line td:last-child,
+.sheet tr.table-line th:last-child {
+    border-right: 2px solid #000;
+}
+
+
+
+
+
+.sheet-container td[style*="text-align: center"] {
+    text-align: center;
+}
+
+.sheet-container td[style*="text-align: right"] {
+    text-align: right;
+}
+
+.column-resizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #ddd;
+    cursor: col-resize;
+}
+
+.row-resizer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #ddd;
+    cursor: row-resize;
+}
+
+.sheet-container table {
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+
+.sheet-container {
+    overflow: auto;
+    max-height: 80vh;
+}
+
+.sheet-container {
+    position: relative;
+    overflow: auto;
+}
+
+.excel-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.excel-cell {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 4px;
+    cursor: col-resize;
+}
+
+.excel-cell::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 5px;
+    cursor: col-resize;
+}
+
+.search-highlight {
+    background-color: yellow;
+}
